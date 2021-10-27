@@ -1,7 +1,7 @@
 from Hand import Hand
 from PokerHands import poker
 from mamba import description, context, it 
-from expects import expect, equal
+from expects import expect, equal, raise_error
 from IllegalArgumentsException import IllegalArgumentsException
 
 import PokerHands
@@ -14,11 +14,7 @@ full_house_hand = Hand("TD TC TH 7C 7D".split())
 with description('Given an empty set of hands') as self:
   with context('When trying to rank the hands'):
     with it('should raise an exception'):
-      try:
-        poker([])
-        assert(False)
-      except IllegalArgumentsException:
-        pass
+      expect(lambda: poker([])).to(raise_error(IllegalArgumentsException))
 
 with description('Given a set of one hand') as self:
   with context('When trying to rank the hands'):
