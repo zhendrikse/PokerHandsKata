@@ -1,10 +1,12 @@
+from IllegalArgumentsException import IllegalArgumentsException
+
 def hand_rank(hand):
   pass
   
 # Return the best hand: poker([hand,...]) => hand 
 def poker(hands):
   if len(hands) == 0:
-    return 
+    raise IllegalArgumentsException()
   elif len(hands) == 1:
     return hands[0]
   

@@ -1,6 +1,6 @@
 # Poker hands kata
 
-TDD version of the course [Design of Computer Programs](https://www.udacity.com/course/design-of-computer-programs--cs212).
+TDD version of the course [Design of Computer Programs](https://www.udacity.com/course/design-of-computer-programs--cs212). The approach is outside-in, also known as the London school of TDD approach.
 
 Refer also to [Test-Driven Development With Python: An Introduction to Mocking](https://medium.com/geekculture/test-driven-development-with-python-an-introduction-to-mocking-8ab6c1fe1c83).
 

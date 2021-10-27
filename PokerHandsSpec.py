@@ -1,7 +1,8 @@
 from Hand import Hand
 from PokerHands import poker
-from mamba import description, context, it
+from mamba import description, context, it 
 from expects import expect, equal
+from IllegalArgumentsException import IllegalArgumentsException
 
 import PokerHands
 from mockito import when
@@ -12,9 +13,12 @@ full_house_hand = Hand("TD TC TH 7C 7D".split())
 
 with description('Given an empty set of hands') as self:
   with context('When trying to rank the hands'):
-    with it('should return None'):
-      hands = []
-      expect(poker(hands)).to(equal(None))
+    with it('should raise an exception'):
+      try:
+        poker([])
+        assert(False)
+      except IllegalArgumentsException:
+        pass
 
 with description('Given a set of one hand') as self:
   with context('When trying to rank the hands'):
