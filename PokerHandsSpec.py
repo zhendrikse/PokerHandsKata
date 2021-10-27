@@ -26,27 +26,36 @@ with description('Given four of a kind versus full house') as self:
   with context('When trying to rank the hands'):
     with it('should return the full house hand'):
       hands = [four_of_a_kind_hand, full_house_hand]
-      
       when(PokerHands).hand_rank(four_of_a_kind_hand).thenReturn(2)
       when(PokerHands).hand_rank(full_house_hand).thenReturn(3)
+      
       expect(poker(hands)).to(equal(full_house_hand))
 
 with description('Given full house versus full house') as self:
   with context('When trying to rank the hands'):
     with it('should return the full house hand'):
       hands = [full_house_hand, full_house_hand]
-      
       when(PokerHands).hand_rank(full_house_hand).thenReturn(3)
+      
+      expect(poker(hands)).to(equal(full_house_hand))
+
+with description('Given 99 straight flushes versus full house') as self:
+  with context('When trying to rank the hands'):
+    with it('should return the full house hand'):
+      hands = [full_house_hand] + 99 * [straight_flush_hand]
+      when(PokerHands).hand_rank(full_house_hand).thenReturn(3)
+      when(PokerHands).hand_rank(straight_flush_hand).thenReturn(1)
+
       expect(poker(hands)).to(equal(full_house_hand))
 
 with description('Given a set of straight flush, four of a kind and full house') as self:
   with context('When trying to rank the hands'):
     with it('should return the full house hand'):
       hands = [straight_flush_hand, four_of_a_kind_hand, full_house_hand]
-      
       when(PokerHands).hand_rank(straight_flush_hand).thenReturn(1)
       when(PokerHands).hand_rank(four_of_a_kind_hand).thenReturn(2)
       when(PokerHands).hand_rank(full_house_hand).thenReturn(3)
+      
       expect(poker(hands)).to(equal(full_house_hand))
 
 
