@@ -24,7 +24,7 @@ with description('Given a set of one hand') as self:
 
 with description('Given four of a kind versus full house') as self:
   with context('When trying to rank the hands'):
-    with it('should return the full house hand'):
+    with it('should return the four of a kind hand'):
       hands = [four_of_a_kind, full_house]
       when(PokerHands).hand_rank(full_house).thenReturn(1)
       when(PokerHands).hand_rank(four_of_a_kind).thenReturn(2)
@@ -41,7 +41,7 @@ with description('Given full house versus full house') as self:
 
 with description('Given 99 straight flushes versus full house') as self:
   with context('When trying to rank the hands'):
-    with it('should return the full house hand'):
+    with it('should return the straight flush hand'):
       hands = [full_house] + 99 * [straight_flush]
       when(PokerHands).hand_rank(full_house).thenReturn(1)
       when(PokerHands).hand_rank(straight_flush).thenReturn(3)
@@ -50,7 +50,7 @@ with description('Given 99 straight flushes versus full house') as self:
 
 with description('Given a set of straight flush, four of a kind and full house') as self:
   with context('When trying to rank the hands'):
-    with it('should return the full house hand'):
+    with it('should return the straight flush hand'):
       hands = [straight_flush, four_of_a_kind, full_house]
       when(PokerHands).hand_rank(full_house).thenReturn(1)
       when(PokerHands).hand_rank(four_of_a_kind).thenReturn(2)
