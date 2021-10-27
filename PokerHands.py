@@ -1,7 +1,7 @@
 from IllegalArgumentsException import IllegalArgumentsException
 
 def hand_rank(hand):
-  pass
+  return hand.rank()
   
 # Return the best hand: poker([hand,...]) => hand 
 def poker(hands):
