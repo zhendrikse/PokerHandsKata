@@ -1,0 +1,1 @@
+run = "bash run_test_and_coverage.sh"
