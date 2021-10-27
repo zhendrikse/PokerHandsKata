@@ -3,9 +3,9 @@ from PokerHands import poker
 from mamba import description, context, it 
 from expects import expect, equal, raise_error
 from IllegalArgumentsException import IllegalArgumentsException
+from mockito import when
 
 import PokerHands
-from mockito import when
 
 straight_flush = Hand("6C 7C 8C 9C T9".split())
 four_of_a_kind = Hand("D9 H9 S9 C9 D7".split())
@@ -36,7 +36,6 @@ with description('Given full house versus full house') as self:
   with context('When trying to rank the hands'):
     with it('should return the full house hand'):
       hands = [full_house, full_house]
-      when(PokerHands).hand_rank(full_house).thenReturn(1)
       expect(poker(hands)).to(equal(full_house))
 
 with description('Given 99 straight flushes versus full house') as self:
