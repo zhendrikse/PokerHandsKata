@@ -1,10 +1,83 @@
 # Poker hands kata
 
-TDD version of the course [Design of Computer Programs](https://www.udacity.com/course/design-of-computer-programs--cs212). The approach is outside-in, also known as the London school of TDD approach.
+The goal of this kata is to determine the best hand out of a set of hands
+containing a set of poker cards (i.e. 5 cards).
+
+This is a TDD version of the course [Design of Computer Programs](https://www.udacity.com/course/design-of-computer-programs--cs212). The approach is outside-in, also known as the London school of TDD approach.
 
 Refer also to [Test-Driven Development With Python: An Introduction to Mocking](https://medium.com/geekculture/test-driven-development-with-python-an-introduction-to-mocking-8ab6c1fe1c83).
 
-# Mamba example
+# Implementation
+
+In this section the implementation is described step-by-step.
+
+## Behaviour on empty set of hands
+
+We start by defining the behaviour for an empty set of hands.
+
+```python
+with description('Given an empty set of hands') as self:
+  with context('When trying to rank the hands'):
+    with it('should raise an exception'):
+      expect(lambda: determine_best_hand([])) \
+        .to(raise_error(IllegalArgumentsException))
+```
+
+This is implemented by
+
+```python
+def determine_best_hand(hands):
+  if len(hands) == 0:
+    raise IllegalArgumentsException()
+```
+
+## Behaviour on a set consisting of a single hand
+
+```python
+straight_flush = Hand("6C 7C 8C 9C T9".split())
+
+with description('Given a set of one hand') as self:
+  with context('When trying to rank the hands'):
+    with it('should return the one and only hand'):
+      hands = [straight_flush]
+      expect(determine_best_hand(hands)).to(equal(straight_flush))
+```
+
+This is implemented by
+
+```python
+def determine_best_hand(hands):
+  if len(hands) == 0:
+    raise IllegalArgumentsException()
+  elif len(hands) == 1:
+    return hands[0]
+```
+
+and a Hand class
+
+```python
+class Hand:
+  def __init__(self, cards):
+    self.cards = cards
+```
+
+## Two equal hands
+
+Let's assume two hands containing full house
+
+```python
+full_house = Hand("TD TC TH 7C 7D".split())
+
+with description('Given full house versus full house') as self:
+  with context('When trying to rank the hands'):
+    with it('should return the full house hand'):
+      hands = [full_house, full_house]
+      expect(determine_best_hand(hands)).to(equal(full_house))
+```
+
+# Appendix
+
+## Mamba example
 
 The [example below](https://replit.com/@zwh/PokerHandsKata#mamba_dummy_spec.py) may be used as inspiration:
  
