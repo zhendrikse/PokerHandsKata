@@ -1,7 +1,7 @@
 from IllegalArgumentsException import IllegalArgumentsException
 
 def rank_hand(hand):
-  return hand.rank()
+  return hand.rank().value
   
 def determine_best_hand(hands):
   if len(hands) == 0:

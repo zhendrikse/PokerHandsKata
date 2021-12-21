@@ -7,3 +7,4 @@ omit =
     #/usr/*
     # omit this single file
     *Spec.py
+

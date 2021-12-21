@@ -1,2 +1,1 @@
-onBoot  = "python -m http.server 8000 -d htmlcov"
-run = "mamba --format=documentation *Spec.py --enable-coverage && coverage html"
+run = "bash run.sh"
