@@ -414,3 +414,19 @@ Write a specification and scenarios contained therein to implement the `get_rank
 
 ---
 
+## Special cases
+
+Most likely, there are still cases that you may not have covered yet. How about for example
+
+```python
+with description(Hand):
+  with fcontext('with ace low straight'):
+    with it('ranks the hand accordingly'):
+      ace_low_straight = Hand("AC 2D 4H 3D 5S")
+      expect(ace_low_straight.rank_hand()).to(equal(
+       (PokerRanks.STRAIGHT, [5, 4, 3, 2, 1])
+      ))
+```
+
+Create a dedicated file for these special cases `special_cases_spec.py`, past in the above scenario, and see what happens!
+

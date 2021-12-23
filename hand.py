@@ -27,8 +27,8 @@ class Hand:
   def rank_cards(self):
     card_list = [card.get_rank() for card in self.cards]
     card_list.sort(reverse = True)
-    return card_list 
-
+    return card_list if card_list != [14, 5, 4, 3, 2] else [5, 4, 3, 2, 1]
+ 
   def two_pair(self):
     ranked_cards = self.rank_cards()
     high_pair = self.of_a_kind(2)
