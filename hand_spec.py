@@ -11,6 +11,13 @@ with description(Hand):
   with it("has 5 cards"):
     expect(Hand("6C 7C 8C 9C TC").cards).to(have_len(5))
 
+  with context('with ace low straight'):
+    with it('ranks the hand accordingly'):
+      ace_low_straight = Hand("AC 2D 4H 3D 5S")
+      expect(ace_low_straight.rank_hand()).to(equal(
+       (PokerRanks.STRAIGHT, 5)
+      ))
+
   with description("Ranking cards") as self:
     with it("ranks a straight flush"):
       when(Card).get_rank().thenReturn(6, 7, 8, 9, 10)

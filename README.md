@@ -428,5 +428,12 @@ with description(Hand):
       ))
 ```
 
-Create a dedicated file for these special cases `special_cases_spec.py`, past in the above scenario, and see what happens!
+Since we mock the card class in most of the `hand_spec.py` specification, copy the above scenario into the _very beginning_ of the `hand_spec.py` file, and see what happens!
+
+---
+#### Exercise
+Fix this special case by modifying the `rank_cards()` function to make an exception for _[14, 5, 4, 3, 2]_. In this case, return _[5, 4, 3, 2, 1]_.
+
+---
+
 
