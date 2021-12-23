@@ -4,9 +4,9 @@
 The goal of this kata is to determine the best hand out of a set of hands
 containing a set of poker cards (i.e. 5 cards).
 
-This is a TDD version of the course [Design of Computer Programs](https://www.udacity.com/course/design-of-computer-programs--cs212). The approach is outside-in, also known as the [London school of TDD](https://blog.devgenius.io/detroit-and-london-schools-of-test-driven-development-3d2f8dca71e5) approach.
+This is a TDD version of the course [Design of Computer Programs](https://www.udacity.com/course/design-of-computer-programs--cs212) by [Peter Norvig](https://en.wikipedia.org/wiki/Peter_Norvig), which happens to use the poker hands kata as well! 
 
-The essence is to work our way from the outside inwards. So we start with a function to pick the winning hand among a set of hands, mocking the ranking function we need to make this happen. Next we implement the ranking of a hand, mocking all the functions we need to make that happen, etc. This way, our design will benefit from this approach, as we will see. 
+The approach is outside-in, also known as the [London school of TDD](https://blog.devgenius.io/detroit-and-london-schools-of-test-driven-development-3d2f8dca71e5) (or [mockist](https://martinfowler.com/articles/mocksArentStubs.html)) approach, the essence of which is to work our way from the outside inwards. So we start with a function to pick the winning hand among a set of hands, mocking the ranking function we need to make this happen. Next we implement the ranking of a hand, mocking all the functions we need to make that happen, etc. This way, our design will benefit from this approach, as we will see. 
 
 For technicall details, you may want to refer also to [Test-Driven Development With Python: An Introduction to Mocking](https://medium.com/geekculture/test-driven-development-with-python-an-introduction-to-mocking-8ab6c1fe1c83).
 
@@ -437,3 +437,16 @@ Fix this special case by modifying the `rank_cards()` function to make an except
 ---
 
 
+# Retrospective
+
+We have seen a nice example of how to program an application from the outside inwards, mocking the calls of the delegates/dependencies that haven't been implemented yet. We have also applied our TDD skills to a somewhat more complicated, or at least less trivial example.
+
+We have seen the one and only use of mocks ([don't mock what you don't own](https://maksimivanov.com/posts/dont-mock-what-you-dont-own/)). Although we haven't touched upon using spies, their proper usage can now properly be imagined as well: suppose we want to send a command to a delegate. As commands don't return anything by definition, how do we verify the command actually arrived? This is exactly what spies are for!
+
+We can conclude that the mockist/London school approach worked amazingly well. At the same time, you may have noticed that the test become more dependent on the code, as the calls to the delegates turn up explicitly in the specifications.
+
+Does this mean that [the mockist approach is inferior](https://www.thoughtworks.com/insights/blog/mockists-are-dead-long-live-classicists)? You have to decide for yourself, but as with most things in life, it is not a matter of either-or, but of and-and.
+
+As is explained in the, we didn't deal with breaking ties yet. What if for example I managed to get a straight flush, ace high, and the other player managed to get the same result but in a different suite? This is left unanswered intentionally, as the kata is pretty long already. It may be done as an additional/bonus extension to this kata nonetheless. 
+
+Last but not least, remember that a kata is supposed to be practiced, i.e. repeated multiple times, perfecting the skill along the way. Every inspiring repetition is suggested in [part 29: refactoring](https://classroom.udacity.com/courses/cs212/lessons/48688918/concepts/486836870923) of the course [Design of Computer Programs](https://www.udacity.com/course/design-of-computer-programs--cs212).
