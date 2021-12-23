@@ -1,5 +1,10 @@
 ## Links
 
+- [relativiteitstheorie](https://exceptionnotfound.net/fundamental-laws-of-software-development/)
+
+- [Kubernetes tutorial](https://redhat-scholars.github.io/kubernetes-tutorial/kubernetes-tutorial/index.html
+- [Fundamental laws of software development](https://exceptionnotfound.net/fundamental-laws-of-software-development/)
+
 - [Uitwerking TaskList kata](https://github.com/codurance/task-list/blob/master/java/src/main/java/com/codurance/training/tasks/TaskList.java)
 - [Udemy poker](https://classroom.udacity.com/courses/cs212/lessons/48688918/concepts/486986890923)
 - [Connascence: Rules for good software design](https://www.maibornwolff.de/en/blog/connascence-rules-good-software-design)

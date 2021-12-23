@@ -8,14 +8,14 @@ from poker_ranks import PokerRanks
 
 import poker_hands
 
-straight_flush = Hand("6C 7C 8C 9C T9")
-four_of_a_kind = Hand("D9 H9 S9 C9 D7")
+straight_flush = Hand("6C 7C 8C 9C TC")
+# four_of_a_kind = Hand("9D 9H 9S 9C 7D")
 full_house = Hand("TD TC TH 7C 7D")
-two_pairs = Hand("5S 5D 9H 9C 6S")
-ace_5_staight = Hand("AS 2S 3S 4S 5S")
-ace_6_staight = Hand("2C 3C 4C 5S 6S")
-ace_heigh = Hand("AS 2S 3S 4S 6C")
-seven_heigh = Hand("2S 3S 4S 6C 7D")
+# two_pairs = Hand("5S 5D 9H 9C 6S")
+# ace_5_staight = Hand("AS 2S 3S 4S 5S")
+# ace_6_staight = Hand("2C 3C 4C 5S 6S")
+# ace_heigh = Hand("AS 2S 3S 4S 6C")
+# seven_heigh = Hand("2S 3S 4S 6C 7D")
 
 when(poker_hands).rank_hand(full_house).thenReturn(PokerRanks.FULL_HOUSE.value)
 when(poker_hands).rank_hand(straight_flush).thenReturn(PokerRanks.STRAIGHT_FLUSH.value)
@@ -43,22 +43,5 @@ with description("Ranking hands") as self:
       expect(determine_best_hand(hands)).to(equal(straight_flush))
 
 
-  # with description('and the other has four of a kind'):
-  #     with it('returns the four of a kind hand as winner'):
-  #       hands = [full_house, four_of_a_kind]
-  #       expect(determine_best_hand(hands)).to(equal(four_of_a_kind))
-  # with context("Given one hand has a full house"):
-  #   with description('and the other has also full house'):
-  #       with it('returns the four of a kind hand as winner'):
-  #         hands = [full_house, full_house]
-  #         expect(determine_best_hand(hands)).to(equal(full_house))
-  #   with context('and 99 straight flushes'):
-  #     with it('returns the straight flush hand as winner'):
-  #       hands = [full_house] + 99 * [straight_flush]
-  #       expect(determine_best_hand(hands)).to(equal(straight_flush))
-  #   with context('and a set of straight flush as well as four of a kind'):
-  #     with it('returns the straight flush hand as winner'):
-  #       hands = [straight_flush, four_of_a_kind, full_house]
-  #       expect(determine_best_hand(hands)).to(equal(straight_flush))
 
 

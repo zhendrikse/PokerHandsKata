@@ -6,5 +6,5 @@ omit =
     # omit everything in /usr
     #/usr/*
     # omit this single file
-    *Spec.py
+    *_spec.py
 

@@ -7,5 +7,6 @@ class PokerRanks(Enum):
     FLUSH = 5
     STRAIGHT = 4
     THREE_OF_A_KIND = 3
-    TWO_OF_A_KIND = 2
-    ONE_OF_A_KIND = 1
+    TWO_PAIR = 2
+    TWO_OF_A_KIND = 1
+    ONE_OF_A_KIND = 0
